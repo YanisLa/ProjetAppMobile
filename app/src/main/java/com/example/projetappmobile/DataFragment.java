@@ -2,6 +2,7 @@ package com.example.projetappmobile;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,18 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.example.projetappmobile.model.Ville;
+import com.example.projetappmobile.model.RestVilleResponse;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class DataFragment extends Fragment {
@@ -34,17 +45,49 @@ public class DataFragment extends Fragment {
         // improve performance if you know that changes
         // in content do not change the layout size
         // of the RecyclerView
+
+
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.myjson.com/bins/")
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+        VilleRestApi villeRestApi = retrofit.create(VilleRestApi.class);
+
+        Call<RestVilleResponse> call = villeRestApi.getListPokemon();
+        call.enqueue(new Callback<RestVilleResponse>() {
+            @Override
+            public void onResponse(Call<RestVilleResponse> call, Response<RestVilleResponse> response) {
+                RestVilleResponse restVilleResponse = response.body();
+                List<Ville> listVille = restVilleResponse.getResults();
+                showList(listVille);
+
+            }
+
+            @Override
+            public void onFailure(Call<RestVilleResponse> call, Throwable t) {
+                Log.d("Erreur", "API ERROR");
+
+
+            }
+        });
+
+
+        return rootView;
+    }
+
+    public void showList(List<Ville> list){
+
         recyclerView.setHasFixedSize(true);
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        List<String> input = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            input.add("Test" + i);
-        }// define an adapter
-        mAdapter = new MyAdapter(input);
-        recyclerView.setAdapter(mAdapter);
 
-        return rootView;
+        mAdapter = new MyAdapter(list);
+        recyclerView.setAdapter(mAdapter);
     }
 }
