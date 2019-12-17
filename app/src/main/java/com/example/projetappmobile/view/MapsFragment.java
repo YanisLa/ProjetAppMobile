@@ -1,4 +1,4 @@
-package com.example.projetappmobile;
+package com.example.projetappmobile.view;
 
 
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.projetappmobile.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -48,9 +49,31 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         mMap.addMarker(new MarkerOptions().position(sydney).title("Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-        LatLng alger = new LatLng(-3.042048, 36.752887);
-        mMap.addMarker(new MarkerOptions().position(alger).title("Alger"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(alger));
+        LatLng nairobie = new LatLng(-3.042048, 36.752887);
+        mMap.addMarker(new MarkerOptions().position(nairobie).title("Nairobi"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(nairobie));
+
+        LatLng dubai = new LatLng(25.0657, 55.1713);
+        mMap.addMarker(new MarkerOptions().position(dubai).title("Dubai"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(dubai));
+
+        LatLng bombay = new LatLng(18.9298324, 72.83336088337234);
+        mMap.addMarker(new MarkerOptions().position(bombay).title("Bombay"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(bombay));
+
+        LatLng bogota = new LatLng(4.59808, -74.0760439);
+        mMap.addMarker(new MarkerOptions().position(bogota).title("Bogota"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(bogota));
+
+        LatLng wc = new LatLng(38.8948932, -77.0365529);
+        mMap.addMarker(new MarkerOptions().position(wc).title("Washington D.C"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(wc));
+
+        LatLng santiago = new LatLng(-33.4377968, -70.6504451);
+        mMap.addMarker(new MarkerOptions().position(santiago).title("Santiago du Chili"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(santiago));
+
+
 
     }
 }

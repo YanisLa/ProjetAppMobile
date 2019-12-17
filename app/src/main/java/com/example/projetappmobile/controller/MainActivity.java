@@ -1,13 +1,16 @@
-package com.example.projetappmobile;
+package com.example.projetappmobile.controller;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.projetappmobile.R;
+import com.example.projetappmobile.view.DataFragment;
+import com.example.projetappmobile.view.HomeFragment;
+import com.example.projetappmobile.view.MapsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 

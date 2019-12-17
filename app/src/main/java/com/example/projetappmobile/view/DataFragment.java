@@ -1,4 +1,4 @@
-package com.example.projetappmobile;
+package com.example.projetappmobile.view;
 
 
 import android.os.Bundle;
@@ -9,9 +9,11 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.projetappmobile.MyAdapter;
+import com.example.projetappmobile.R;
 import com.example.projetappmobile.model.Ville;
 import com.example.projetappmobile.model.RestVilleResponse;
 import com.google.gson.Gson;
@@ -84,7 +86,7 @@ public class DataFragment extends Fragment {
 
         recyclerView.setHasFixedSize(true);
         // use a linear layout manager
-        layoutManager = new LinearLayoutManager(getContext());
+        layoutManager = new GridLayoutManager(getContext(), 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new MyAdapter(list);
