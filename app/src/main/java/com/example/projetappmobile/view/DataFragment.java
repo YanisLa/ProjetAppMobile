@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projetappmobile.MyAdapter;
+import com.example.projetappmobile.controller.MyAdapter;
 import com.example.projetappmobile.R;
 import com.example.projetappmobile.model.Ville;
 import com.example.projetappmobile.model.RestVilleResponse;
