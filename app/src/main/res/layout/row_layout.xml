@@ -8,16 +8,16 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="88dp"
-        android:layout_height="64dp"
+        android:layout_width="98dp"
+        android:layout_height="65dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="0dp"
         android:layout_marginRight="6dip"
         android:layout_marginBottom="79dp"
         android:background="#000000"
         android:contentDescription="TODO"
-        android:src="@mipmap/icone1" />
+        android:src="@drawable/ic_3_foreground" />
 
     <TextView
         android:id="@+id/secondLine"
